@@ -9,7 +9,9 @@ module Api
       end
 
       def show
-        render json: { status: 'SUCCESS', message: 'Loaded the post', data: @post }
+        @todo = Todo.new
+        @todos = @post.todos
+        render json: { status: 'SUCCESS', message: 'Loaded the post', data: { post: @post, todos: @todos }}
       end
 
       def create
