@@ -7,11 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    if Rails.env.development?
-      origins "http://localhost:3001"
-    elsif Rails.env.production?
-      origins "https://posts-front-fy60b0l0v-yoshi-projects.vercel.app"
-    end
+    origins "http://localhost:3000", "https://posts-front-fy60b0l0v-yoshi-projects.vercel.app"
 
     resource "*",
       headers: :any,
