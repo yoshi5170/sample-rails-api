@@ -31,9 +31,9 @@ module Api
       def update
         post = Post.find(params[:id])
         if post.update(post_params)
-          render json: { status: 'SUCCESS', message: 'Updated the post', data: @post }
+          render json: { status: 'SUCCESS', message: 'Updated the post', data: post }
         else
-          render json: { status: 'SUCCESS', message: 'Not updated', data: @post.errors }
+          render json: { status: 'ERROR', message: 'Not updated', data: post.errors }
         end
       end
 
